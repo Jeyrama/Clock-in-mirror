@@ -19,3 +19,10 @@ There is no 13:20, instead it is 01:20.
 
 
 // Solution
+
+let whatIsTheTime = t => {
+  let [h, m] = t.split(':');
+  h = (+m ? 11 : 12) - h % 12 || 12;
+  m = (60 - m) % 60;
+  return [h, m].map(e => e > 9 ? e : '0' + e).join(':');
+}
