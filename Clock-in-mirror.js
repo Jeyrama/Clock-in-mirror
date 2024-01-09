@@ -26,3 +26,5 @@ let whatIsTheTime = t => {
   m = (60 - m) % 60;
   return [h, m].map(e => e > 9 ? e : '0' + e).join(':');
 }
+
+// or
