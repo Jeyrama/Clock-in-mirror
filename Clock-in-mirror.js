@@ -28,3 +28,16 @@ let whatIsTheTime = t => {
 }
 
 // or
+
+Number.prototype.mod = function(n) {
+  return ((this % n) + n) % n;
+};
+
+function whatIsTheTime(mirrored) {
+  const [mh, mm] = mirrored.split(':').map(Number);
+  const m = (-mm).mod(60);
+  const h = (-mh - (m && 1)).mod(12) || 12;
+  return [h, m].map(n => ('0' + n).slice(-2)).join(':');
+}
+
+const WhatIsTheTime = whatIsTheTime;
